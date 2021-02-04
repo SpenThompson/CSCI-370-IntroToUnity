@@ -10,7 +10,7 @@ public class ThrowPancake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("DropPancake2");
+        StartCoroutine("DropPancake");
     }
 
     // Update is called once per frame
@@ -19,12 +19,7 @@ public class ThrowPancake : MonoBehaviour
         
     }
 
-    void DropPancake()
-    {
-        
-    }
-
-    IEnumerator DropPancake2()
+    IEnumerator DropPancake()
     {
         yield return new WaitForSeconds(2f);
         for (; ; )
@@ -37,7 +32,7 @@ public class ThrowPancake : MonoBehaviour
             {
                 Instantiate(bird, new Vector2(Random.Range(-9.5f, 9.5f), 6.5f), bird.transform.rotation);
             }
-            //Instantiate(pancake);
+            
             yield return new WaitForSeconds(Random.Range(2f, 4f));
         }
     }
