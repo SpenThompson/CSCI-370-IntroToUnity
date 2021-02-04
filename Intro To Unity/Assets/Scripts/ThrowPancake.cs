@@ -24,9 +24,10 @@ public class ThrowPancake : MonoBehaviour
         yield return new WaitForSeconds(2f);
         for (; ; )
         {
-            if (Random.Range(0, 2) == 0)
+            int randint = Random.Range(0, 4);
+            if (randint == 0 || randint == 1)
             {
-                Instantiate(pancake, new Vector2(Random.Range(-10.5f, 10.5f), 6.5f), pancake.transform.rotation);
+                Instantiate(pancake, new Vector2(Random.Range(-9.5f, 9.5f), 6.5f), pancake.transform.rotation);
             }
             else
             {
