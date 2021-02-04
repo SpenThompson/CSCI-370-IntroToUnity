@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThrowPancake : MonoBehaviour
 {
     public GameObject pancake;
+    public GameObject bird;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class ThrowPancake : MonoBehaviour
 
     void DropPancake()
     {
-        Instantiate(pancake);
+        
     }
 
     IEnumerator DropPancake2()
@@ -28,7 +29,15 @@ public class ThrowPancake : MonoBehaviour
         yield return new WaitForSeconds(2f);
         for (; ; )
         {
-            Instantiate(pancake);
+            if (Random.Range(0, 2) == 0)
+            {
+                Instantiate(pancake, new Vector2(Random.Range(-10.5f, 10.5f), 6.5f), pancake.transform.rotation);
+            }
+            else
+            {
+                Instantiate(bird, new Vector2(Random.Range(-9.5f, 9.5f), 6.5f), bird.transform.rotation);
+            }
+            //Instantiate(pancake);
             yield return new WaitForSeconds(Random.Range(2f, 4f));
         }
     }
