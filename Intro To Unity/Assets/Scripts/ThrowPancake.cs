@@ -6,11 +6,21 @@ public class ThrowPancake : MonoBehaviour
 {
     public GameObject pancake;
     public GameObject bird;
+    public GameObject score;
+    public GameObject bear;
+    
+    public GameObject previewBird;
+    public GameObject previewPancake;
+
+    private GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("DropPancake");
+        canvas = GameObject.Find("Canvas");
+        //previewPancake = GameObject.Find("Pancake");
+        //previewBird = GameObject.Find("Bird");
+        
     }
 
     // Update is called once per frame
@@ -27,14 +37,26 @@ public class ThrowPancake : MonoBehaviour
             int randint = Random.Range(0, 4);
             if (randint == 0 || randint == 1)
             {
-                Instantiate(pancake, new Vector2(Random.Range(-9.5f, 9.5f), 6.5f), pancake.transform.rotation);
+                Instantiate(pancake, new Vector2(Random.Range(-7.0f, 7.0f), 6.5f), pancake.transform.rotation);
             }
             else
             {
-                Instantiate(bird, new Vector2(Random.Range(-9.5f, 9.5f), 6.5f), bird.transform.rotation);
+                Instantiate(bird, new Vector2(Random.Range(-6.8f, 6.8f), 6.5f), bird.transform.rotation);
             }
             
             yield return new WaitForSeconds(Random.Range(2f, 4f));
         }
+    }
+
+    public void Play() {
+        canvas.SetActive(false);
+        previewBird.SetActive(false);
+        //previewPancake.SetActive(false);
+        bear.GetComponent<FollowMouse>().enabled = true;
+        StartCoroutine("DropPancake");
+    }
+
+    public void incScore(int i) {
+        //score += i;
     }
 }

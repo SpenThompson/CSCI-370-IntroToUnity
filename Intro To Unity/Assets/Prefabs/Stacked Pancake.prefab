@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7939374296415160742}
   m_Layer: 0
   m_Name: Stacked Pancake
-  m_TagString: Untagged
+  m_TagString: Pancake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

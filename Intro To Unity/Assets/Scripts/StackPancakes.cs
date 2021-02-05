@@ -23,5 +23,6 @@ public class StackPancakes : MonoBehaviour
         GameObject newPancake = Instantiate(pancake, transform.position, transform.rotation);//, col.transform);
         newPancake.transform.parent = col.transform;
         Destroy(gameObject);
+        
     }
 }
